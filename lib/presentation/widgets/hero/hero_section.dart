@@ -91,12 +91,12 @@ class HeroSection extends StatelessWidget {
         height: size,
         decoration: const BoxDecoration(
           shape: BoxShape.circle,
-          color: Colors.white24,
+          color: AppColors.imagePlaceholder,
         ),
         alignment: Alignment.center,
         child: const Icon(
           Icons.image_not_supported_outlined,
-          color: Colors.white54,
+          color: AppColors.imagePlaceholderIcon,
         ),
       ),
     );

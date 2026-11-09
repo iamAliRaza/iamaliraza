@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../../../core/theme/app_colors.dart';
+
 /// Renders an asset image — SVG via flutter_svg, everything else via
 /// Image.asset — with a graceful fallback for while the real Figma assets
 /// haven't been downloaded into assets/ yet (build-order phase 5). Drop the
@@ -30,11 +32,11 @@ class AppAssetImage extends StatelessWidget {
   Widget _fallback() => Container(
     width: width,
     height: height,
-    color: Colors.white24,
+    color: AppColors.imagePlaceholder,
     alignment: Alignment.center,
     child: const Icon(
       Icons.image_not_supported_outlined,
-      color: Colors.white54,
+      color: AppColors.imagePlaceholderIcon,
     ),
   );
 

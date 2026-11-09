@@ -18,6 +18,9 @@ class AppColors {
   static const Color dialogBackground = Color(0xFF161616);
   // cardBackground as it looks over black, but opaque for the pinned NavBar.
   static const Color navBackground = Color(0xFF202020);
+  // Fallback shown when an image fails to load.
+  static const Color imagePlaceholder = Color(0x3DFFFFFF);
+  static const Color imagePlaceholderIcon = Color(0x8AFFFFFF);
   static const Color shadow = Color.fromRGBO(0, 0, 0, 0.25);
   static const Color glowWhite = Color.fromRGBO(255, 255, 255, 0.25);
 

@@ -65,7 +65,9 @@ class FooterSection extends StatelessWidget {
                 _flutterMark,
                 width: AppDimensions.footerIconSize,
                 height: AppDimensions.footerIconSize,
-                padding: const EdgeInsets.only(left: AppDimensions.spaceXs + 2),
+                padding: const EdgeInsets.only(
+                  left: AppDimensions.footerGlyphGap,
+                ),
               ),
               const TextSpan(text: '  •  '),
               TextSpan(text: profile.name),
@@ -73,7 +75,9 @@ class FooterSection extends StatelessWidget {
                 _pakistanFlag,
                 width: AppDimensions.footerFlagWidth,
                 height: AppDimensions.footerFlagHeight,
-                padding: const EdgeInsets.only(left: AppDimensions.spaceXs + 2),
+                padding: const EdgeInsets.only(
+                  left: AppDimensions.footerGlyphGap,
+                ),
               ),
             ],
           ),

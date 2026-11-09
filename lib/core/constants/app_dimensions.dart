@@ -23,6 +23,10 @@ class AppDimensions {
   // Component sizing
   static const double navBarHeight = 78;
   static const double navLogoSize = 44;
+  // A section counts as being read once its top passes this line, just
+  // below the pinned NavBar.
+  static const double activeSectionProbeY = spaceXl + navBarHeight + spaceXxl;
+  static const double footerGlyphGap = 6;
   static const double cursorDotRadius = 5;
   // Where the dot rests relative to the arrow's tip: just below the arrow.
   static const double cursorDotOffsetX = 12;

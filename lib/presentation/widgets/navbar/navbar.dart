@@ -147,21 +147,43 @@ class _NavLink extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return HoverBuilder(
-      cursor: SystemMouseCursors.click,
-      builder: (context, isHovered) {
-        return InkWell(
-          onTap: () => controller.scrollTo(section),
-          child: Text(
-            label,
-            style: isHovered
-                ? AppTextStyles.navLink.copyWith(fontWeight: FontWeight.bold)
-                : AppTextStyles.navLink,
-            textScaler: TextScaler.noScaling,
-          ),
-        );
-      },
-    );
+    final bold = AppTextStyles.navLink.copyWith(fontWeight: FontWeight.bold);
+
+    return Obx(() {
+      // Read here rather than in the builder below, where GetX can't see it.
+      final isActive = controller.activeSection.value == section;
+
+      return HoverBuilder(
+        cursor: SystemMouseCursors.click,
+        builder: (context, isHovered) {
+          return InkWell(
+            onTap: () => controller.scrollTo(section),
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                // Invisible bold copy reserves the width, so neighbouring
+                // links don't shift when this one turns bold.
+                ExcludeSemantics(
+                  child: Opacity(
+                    opacity: 0,
+                    child: Text(
+                      label,
+                      style: bold,
+                      textScaler: TextScaler.noScaling,
+                    ),
+                  ),
+                ),
+                Text(
+                  label,
+                  style: isActive || isHovered ? bold : AppTextStyles.navLink,
+                  textScaler: TextScaler.noScaling,
+                ),
+              ],
+            ),
+          );
+        },
+      );
+    });
   }
 }
 

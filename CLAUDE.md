@@ -143,7 +143,8 @@ omitted: there is no business logic beyond fetch/filter and no external data for
 - `controllers/home_controller.dart` (`GetxController`) — owns the page `ScrollController` and a
   `GlobalKey` per `PortfolioSection`. `scrollTo(section)` runs `Scrollable.ensureVisible`, which
   already stops below the pinned nav sliver, so don't add a manual offset.
-  It also sets `activeSection` (an `Rx`), which nothing reads yet.
+  A scroll listener keeps `activeSection` (an `Rx`) on the section being read, which bolds its
+  desktop nav link. How I Build has no key, so it counts as part of About.
 - `bindings/home_binding.dart` — registers `PortfolioRepository` (→ `PortfolioRepositoryImpl`) and
   `HomeController` via `Get.lazyPut`. Section widgets are `StatelessWidget`s that call
   `Get.find<PortfolioRepository>()` / `Get.find<HomeController>()` directly in `build`.
@@ -255,10 +256,3 @@ project docs: intro, highlights, stack, selected projects, contact links, then a
   relative links break when the README renders on the profile page.
 - Content must match `portfolio_content.dart`, with no invented claims.
 - Keep detailed conventions here in CLAUDE.md, not in the README.
-
-## Known loose ends (as of Nov 2026)
-
-Not bugs to fix unprompted — just context so they aren't mistaken for intentional design:
-- `HomeController.activeSection` is written but never read (no active-nav highlighting).
-- A few token-rule exceptions remain: `Colors.white24` / `Colors.white54` in the image fallbacks
-  (`AppAssetImage`, `HeroSection`) and `spaceXs + 2` in `FooterSection`.
