@@ -199,6 +199,31 @@ class _HeroText extends StatelessWidget {
             const SocialIconRow(),
           ],
         ),
+        const SizedBox(height: AppDimensions.spaceLg),
+        Wrap(
+          alignment: centered ? WrapAlignment.center : WrapAlignment.start,
+          spacing: AppDimensions.spaceLg,
+          runSpacing: AppDimensions.spaceSm,
+          children: [
+            for (final stat in profile.stats)
+              Text.rich(
+                TextSpan(
+                  children: [
+                    TextSpan(
+                      text: '${stat.value} ',
+                      style: AppTextStyles.bodyEmphasis,
+                    ),
+                    TextSpan(
+                      text: stat.label,
+                      style: AppTextStyles.bodyRegular.copyWith(
+                        color: AppColors.textSecondary,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+          ],
+        ),
       ],
     );
   }

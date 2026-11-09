@@ -8,6 +8,7 @@ class Profile {
   final String aboutBio;
   final String email;
   final String profileImageAsset;
+  final List<ProfileStat> stats;
 
   const Profile({
     required this.name,
@@ -17,5 +18,14 @@ class Profile {
     required this.aboutBio,
     required this.email,
     required this.profileImageAsset,
+    required this.stats,
   });
+}
+
+/// A headline figure shown under the hero, e.g. "9+" "years in mobile".
+class ProfileStat {
+  final String value;
+  final String label;
+
+  const ProfileStat({required this.value, required this.label});
 }

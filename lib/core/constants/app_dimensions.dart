@@ -23,6 +23,10 @@ class AppDimensions {
   // Component sizing
   static const double navBarHeight = 78;
   static const double navLogoSize = 44;
+  static const double cursorDotRadius = 5;
+  // Where the dot rests relative to the arrow's tip: just below the arrow.
+  static const double cursorDotOffsetX = 12;
+  static const double cursorDotOffsetY = 30;
   static const double socialIconSize = 22;
   static const double pillButtonIconSize = 18;
   static const double skillTileHeight = 120;

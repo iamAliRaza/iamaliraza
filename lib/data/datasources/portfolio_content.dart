@@ -31,6 +31,11 @@ const Profile portfolioProfile = Profile(
       'the architectural bar high.',
   email: 'hello@iamaliraza.com',
   profileImageAsset: 'assets/images/profile/profile_photo.jpg',
+  stats: [
+    ProfileStat(value: '9+', label: 'years in mobile'),
+    ProfileStat(value: '50K+', label: 'app downloads'),
+    ProfileStat(value: '5–7', label: 'white-labelled apps'),
+  ],
 );
 
 const List<SocialLink> portfolioSocialLinks = [

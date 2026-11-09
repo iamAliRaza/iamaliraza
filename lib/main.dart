@@ -6,6 +6,7 @@ import 'core/localization/app_translations.dart';
 import 'core/theme/app_theme.dart';
 import 'presentation/bindings/home_binding.dart';
 import 'presentation/screens/home_screen.dart';
+import 'presentation/widgets/common/cursor_follower.dart';
 
 void main() => runApp(const MyApp());
 
@@ -24,6 +25,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       initialBinding: HomeBinding(),
       home: const HomeScreen(),
+      builder: (context, child) =>
+          CursorFollower(child: child ?? const SizedBox.shrink()),
     );
   }
 }

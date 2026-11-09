@@ -20,7 +20,7 @@ content change; no widget code should need to change alongside it. Content decis
 local, uncommitted file (`CLAUDE.local.md`); read it before changing content, and keep that kind of
 note out of committed files. How the content is modelled:
 - **Hero:** `Profile.roleTitle` is the honorific rendered muted before the uppercased name, and
-  `Profile.headline` is the role line beneath it.
+  `Profile.headline` is the role line beneath it. `Profile.stats` are the figures under the buttons.
 - **Projects:** two rows by `ProjectCategory`. A project with a `ProjectShowcase` (Featured) gets a
   cover card that opens `project_details_dialog.dart`, with a gallery and `StoreLink`s. One without
   (Earlier Work) gets a text card with no tap action. `ProjectsSection` hides a row when its list is
@@ -170,6 +170,9 @@ omitted: there is no business logic beyond fetch/filter and no external data for
     click-drag** (Flutter's default scroll behaviour doesn't), with padding applied inside the
     scrollable so items clip at the card border. On tablet/desktop it overlays arrow buttons, shown
     only when there's more to scroll that way. Used for project rows, the Mobile skills row and the dialog gallery.
+  - `CursorFollower` — the small dot that chases the mouse. It wraps the app in `main.dart` (above
+    the Navigator, so it works over dialogs), has its own ticker and painter so it never rebuilds
+    the page, stops when settled, and ignores touch and reduced-motion users.
   - `BulletText` (one bulleted line with a hanging indent), `SectionHeading`, and `AppAssetImage`
     (see Assets).
 - Links open through `common/open_external_url.dart` (`url_launcher`, external application) from
