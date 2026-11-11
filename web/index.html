@@ -67,6 +67,13 @@
     covers that gap and removes itself as soon as Flutter's first frame mounts.
   -->
   <style>
+    /* Black behind the canvas, so any gap iOS Safari leaves around the
+       viewport (toolbar, safe area) matches the site instead of showing white. */
+    html, body {
+      margin: 0;
+      background: #000000;
+    }
+
     #splash {
       position: fixed;
       inset: 0;
