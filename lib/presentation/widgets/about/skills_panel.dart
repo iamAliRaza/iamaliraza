@@ -253,6 +253,7 @@ class _ListCards extends StatelessWidget {
                 child: ConstrainedBox(
                   constraints: BoxConstraints(minHeight: minHeight),
                   child: GlassCard(
+                    enableHoverGlow: true,
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       crossAxisAlignment: CrossAxisAlignment.start,
