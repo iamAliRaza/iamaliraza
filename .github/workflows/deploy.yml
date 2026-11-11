@@ -8,6 +8,12 @@ on:
 permissions:
   contents: read
 
+# A newer push replaces any run still queued or building, so an older commit
+# can never finish last and overwrite the latest deploy.
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
